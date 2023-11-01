@@ -1,0 +1,13 @@
+actions:
+  - name: 'Buildbuddy Build & Test'
+    container_image: ubuntu-20.04
+    triggers:
+      push:
+        branches:
+          - 'master'
+      pull_request:
+        merge_with_base: false
+        branches:
+          - '*'
+    bazel_commands:
+      - bazel test --config=buildbuddy //:test

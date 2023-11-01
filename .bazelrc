@@ -1,0 +1,33 @@
+startup --host_jvm_args=-DBAZEL_TRACK_SOURCE_DIRECTORIES=1
+
+build --enable_runfiles
+
+common --incompatible_allow_tags_propagation
+common --max_config_changes_to_show=-1
+common --incompatible_strict_action_env 
+common --jobs=4
+
+build:buildbuddy --remote_executor=grpcs://remote.buildbuddy.io
+build:buildbuddy --remote_cache=grpcs://remote.buildbuddy.io
+build:buildbuddy --remote_download_toplevel
+build:buildbuddy --host_platform=@buildbuddy_toolchain//:platform
+build:buildbuddy --platforms=@buildbuddy_toolchain//:platform
+build:buildbuddy --extra_execution_platforms=@buildbuddy_toolchain//:platform
+build:buildbuddy --crosstool_top=@buildbuddy_toolchain//:toolchain
+build:buildbuddy --extra_toolchains=@buildbuddy_toolchain//:cc_toolchain
+build:buildbuddy --javabase=@buildbuddy_toolchain//:javabase_jdk8
+build:buildbuddy --host_javabase=@buildbuddy_toolchain//:javabase_jdk8
+build:buildbuddy --java_toolchain=@buildbuddy_toolchain//:toolchain_jdk8
+build:buildbuddy --host_java_toolchain=@buildbuddy_toolchain//:toolchain_jdk8
+build:buildbuddy --define=EXECUTOR=remote
+build:buildbuddy --incompatible_strict_action_env
+build:buildbuddy --cpu=k8
+build:buildbuddy --host_cpu=k8
+build:buildbuddy --java_runtime_version=remotejdk_11
+build:buildbuddy --experimental_remote_cache_compression
+build:buildbuddy --experimental_remote_build_event_upload=minimal
+build:buildbuddy --nolegacy_important_outputs
+build:buildbuddy --noslim_profile
+build:buildbuddy --experimental_profile_include_target_label
+build:buildbuddy --experimental_profile_include_primary_output
+build:buildbuddy --remote_timeout=300
