@@ -2,7 +2,26 @@ workspace(
     name = "buildbuddy-kind",
 )
 
-load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_file")
+load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_file", "http_archive")
+
+
+http_archive(
+    name = "io_buildbuddy_buildbuddy_toolchain",
+    sha256 = "e899f235b36cb901b678bd6f55c1229df23fcbc7921ac7a3585d29bff2bf9cfd",
+    strip_prefix = "buildbuddy-toolchain-fd351ca8f152d66fc97f9d98009e0ae000854e8f",
+    urls = ["https://github.com/buildbuddy-io/buildbuddy-toolchain/archive/fd351ca8f152d66fc97f9d98009e0ae000854e8f.tar.gz"],
+)
+
+load("@io_buildbuddy_buildbuddy_toolchain//:deps.bzl", "buildbuddy_deps")
+
+buildbuddy_deps()
+
+load("@io_buildbuddy_buildbuddy_toolchain//:rules.bzl", "buildbuddy")
+
+buildbuddy(
+    name = "buildbuddy_toolchain",
+    container_image = "gcr.io/flame-public/rbe-ubuntu20-04@sha256:036ae8c90876fa22da9ace6f8218e614f4cd500a154fc162973fff691e72d28e",
+)
 
 http_file(
     name = "kind_darwin_x86",
