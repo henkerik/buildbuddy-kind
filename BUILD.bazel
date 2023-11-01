@@ -1,0 +1,21 @@
+sh_test(
+    name = "test",
+    srcs = [
+        "test.sh",
+    ],
+    args = [
+        "$(KIND)",
+    ],
+    data = [
+        "//rules/tools/kind:kind_alias",
+    ],
+    exec_properties = {
+        "test.workload-isolation-type": "firecracker",
+        "test.init-dockerd": "true",
+        "test.recycle-runner": "true",
+    },
+    tags = [],
+    toolchains = [
+        "//rules/tools/kind:kind_alias",
+    ],
+)

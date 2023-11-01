@@ -1,0 +1,87 @@
+load("//rules/tools/kind:kind.bzl", "kind_alias", "kind_toolchain")
+
+kind_alias(
+    name = "kind_alias",
+    visibility = ["//visibility:public"],
+)
+
+kind_toolchain(
+    name = "kind_linux_x86_toolchain_impl",
+    compiler = "@kind_linux_x86//file",
+)
+
+kind_toolchain(
+    name = "kind_linux_aarch64_toolchain_impl",
+    compiler = "@kind_linux_aarch64//file",
+)
+
+kind_toolchain(
+    name = "kind_darwin_x86_toolchain_impl",
+    compiler = "@kind_darwin_x86//file",
+)
+
+kind_toolchain(
+    name = "kind_darwin_aarch64_toolchain_impl",
+    compiler = "@kind_darwin_aarch64//file",
+)
+
+toolchain_type(
+    name = "kind_toolchain_type",
+    visibility = ["//visibility:public"],
+)
+
+toolchain(
+    name = "kind_linux_x86_toolchain",
+    exec_compatible_with = [
+        "@platforms//os:linux",
+        "@platforms//cpu:x86_64",
+    ],
+    target_compatible_with = [
+        "@platforms//os:linux",
+        "@platforms//cpu:x86_64",
+    ],
+    toolchain = ":kind_linux_x86_toolchain_impl",
+    toolchain_type = ":kind_toolchain_type",
+)
+
+toolchain(
+    name = "kind_linux_aarch64_toolchain",
+    exec_compatible_with = [
+        "@platforms//os:linux",
+        "@platforms//cpu:aarch64",
+    ],
+    target_compatible_with = [
+        "@platforms//os:linux",
+        "@platforms//cpu:aarch64",
+    ],
+    toolchain = ":kind_linux_aarch64_toolchain_impl",
+    toolchain_type = ":kind_toolchain_type",
+)
+
+toolchain(
+    name = "kind_darwin_x86_toolchain",
+    exec_compatible_with = [
+        "@platforms//os:osx",
+        "@platforms//cpu:x86_64",
+    ],
+    target_compatible_with = [
+        "@platforms//os:osx",
+        "@platforms//cpu:x86_64",
+    ],
+    toolchain = ":kind_darwin_x86_toolchain_impl",
+    toolchain_type = ":kind_toolchain_type",
+)
+
+toolchain(
+    name = "kind_darwin_aarch64_toolchain",
+    exec_compatible_with = [
+        "@platforms//os:osx",
+        "@platforms//cpu:aarch64",
+    ],
+    target_compatible_with = [
+        "@platforms//os:osx",
+        "@platforms//cpu:aarch64",
+    ],
+    toolchain = ":kind_darwin_aarch64_toolchain_impl",
+    toolchain_type = ":kind_toolchain_type",
+)
