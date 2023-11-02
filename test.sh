@@ -7,7 +7,7 @@ docker info
 KIND=$1
 
 $KIND --version
-sudo $KIND create cluster --verbosity 4 || true
+$KIND create cluster --verbosity 4 || true
 $KIND get nodes
 
 echo "docker ps --all"
