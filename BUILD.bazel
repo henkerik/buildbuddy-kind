@@ -13,6 +13,7 @@ sh_test(
         "test.workload-isolation-type": "firecracker",
         "test.init-dockerd": "true",
         "test.recycle-runner": "true",
+        "EstimatedComputeUnits": "4",
     },
     tags = [],
     toolchains = [
