@@ -9,4 +9,4 @@ $KIND create cluster --verbosity 4 || true
 $KIND get nodes
 
 echo "Printing logs..."
-docker logs kind-control-plane
+docker ps -a --format '{{json .ID}}' | xargs -I %s -- docker logs %s
