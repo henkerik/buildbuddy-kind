@@ -3,12 +3,13 @@
 set -e
 
 docker info
+docker context inspect
 
-KIND=$1
+minikube start --driver=docker
+minikube status 
 
-$KIND --version
-KIND_EXPERIMENTAL_PROVIDER=podman $KIND create cluster --verbosity 4 || true
-$KIND get nodes
+kubectl cluster-info
+kubectl get nodes
 
 echo "docker ps --all"
 docker ps --all
