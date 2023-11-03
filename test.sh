@@ -13,7 +13,7 @@ whoami
 docker info
 docker context inspect
 
-minikube start --driver=docker
+minikube start --force --driver=docker
 minikube status 
 
 kubectl cluster-info
