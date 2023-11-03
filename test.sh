@@ -7,6 +7,9 @@ cat /proc/cpuinfo
 echo "whoami"
 whoami
 
+su docker
+whoami
+
 docker info
 docker context inspect
 
