@@ -7,7 +7,7 @@ docker info
 KIND=$1
 
 $KIND --version
-$KIND create cluster --verbosity 4 || true
+KIND_EXPERIMENTAL_PROVIDER=podman $KIND create cluster --verbosity 4 || true
 $KIND get nodes
 
 echo "docker ps --all"
