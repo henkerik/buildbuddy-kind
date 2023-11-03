@@ -2,6 +2,11 @@
 
 set -e
 
+cat /proc/cpuinfo
+
+echo "whoami"
+whoami
+
 docker info
 docker context inspect
 
