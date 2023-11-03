@@ -9,7 +9,8 @@ whoami
 
 podman info
 
-minikube start --driver=podman
+minikube config set rootless true
+minikube start --driver=podman --container-runtime=containerd
 minikube status 
 
 kubectl cluster-info
