@@ -25,6 +25,7 @@ set -e
 # minikube start --driver=podman --container-runtime=cri-o
 # minikube status 
 
+k3d cluster delete mycluster
 k3d cluster create mycluster --kubeconfig-switch-context
 
 k3d kubeconfig merge mycluster --kubeconfig-switch-context
