@@ -7,6 +7,13 @@ cat /proc/cpuinfo
 echo "whoami"
 whoami
 
+echo "groups"
+groups
+
+ech "su docker"
+su docker
+whoami
+
 podman info
 
 minikube config set rootless false

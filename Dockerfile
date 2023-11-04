@@ -11,3 +11,8 @@ RUN mv kubectl /usr/local/bin/
 
 RUN apt install -y podman 
 RUN apt install -y sudo
+
+RUN groupadd docker
+RUN useradd -g docker docker
+
+USER docker
