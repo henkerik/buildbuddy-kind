@@ -27,8 +27,13 @@ set -e
 
 k3d cluster create mycluster --kubeconfig-switch-context
 
+k3d kubeconfig merge mycluster --kubeconfig-switch-context
+
 echo "kubectl cluster-info"
 kubectl cluster-info
+
+echo "kubectl cluster-info dump"
+kubectl cluster-info dump
 
 echo "kubectl get nodes"
 kubectl get nodes
