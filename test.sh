@@ -42,5 +42,11 @@ kubectl config get-contexts
 echo "kubectl get nodes"
 kubectl get nodes
 
+echo "kubectl get namespaces"
+kubectl get namespaces
+
+echo "kubectl -n=kube-system get pods"
+kubectl -n=kube-system get pods
+
 echo "docker ps"
 docker ps
