@@ -10,9 +10,14 @@ whoami
 echo "groups"
 groups
 
-ech "su docker"
+echo "su docker"
 su docker
 whoami
+
+echo "add docker group"
+groupadd docker
+useradd -g docker docker
+su docker
 
 podman info
 
