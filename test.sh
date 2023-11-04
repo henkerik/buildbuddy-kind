@@ -25,7 +25,10 @@ set -e
 # minikube start --driver=podman --container-runtime=cri-o
 # minikube status 
 
-k3d cluster create mycluster
+k3d cluster create mycluster --kubeconfig-switch-context
 
+echo "kubectl cluster-info"
 kubectl cluster-info
+
+echo "kubectl get nodes"
 kubectl get nodes
