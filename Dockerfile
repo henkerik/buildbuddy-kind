@@ -12,7 +12,4 @@ RUN mv kubectl /usr/local/bin/
 RUN apt install -y podman 
 RUN apt install -y sudo
 
-RUN groupadd docker
-RUN useradd -g docker docker
-
-USER docker
+RUN curl -s https://raw.githubusercontent.com/k3d-io/k3d/main/install.sh | bash

@@ -20,7 +20,7 @@ load("@io_buildbuddy_buildbuddy_toolchain//:rules.bzl", "buildbuddy")
 
 buildbuddy(
     name = "buildbuddy_toolchain",
-    container_image = "henkerik/ubuntu-rbe-minikube@sha256:34f77a2ea91e4dc54460e9ad9fd5848a6a09748887cdfe8a4dfeec0047129625",
+    container_image = "henkerik/ubuntu-rbe-minikube@sha256:a6fd812d6ea652e7f2bd650b0b1b12b6783a799eeeee3c3bd94220a740fcb9a3",
 )
 
 http_file(
