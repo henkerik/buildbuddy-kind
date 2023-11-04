@@ -74,6 +74,9 @@ spec:
         - containerPort: 80
 EOF
 
+echo "kubectl wait --for=condition=ready pod -l app=helloworld"
+kubectl wait --for=condition=ready pod -l app=helloworld 
+
 echo "kubectl get pods"
 kubectl get pods
 
