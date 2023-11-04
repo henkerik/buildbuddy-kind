@@ -36,5 +36,11 @@ kubectl cluster-info
 echo "kubectl cluster-info dump"
 kubectl cluster-info dump
 
+echo "kubectl config get-contexts"
+kubectl config get-contexts
+
 echo "kubectl get nodes"
 kubectl get nodes
+
+echo "docker ps"
+docker ps
