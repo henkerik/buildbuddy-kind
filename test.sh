@@ -42,6 +42,9 @@ kubectl config get-contexts
 echo "kubectl get nodes"
 kubectl get nodes
 
+echo "kubectl get pods -A"
+kubectl get pods -A
+
 echo "kubectl get namespaces"
 kubectl get namespaces
 
@@ -79,11 +82,8 @@ sleep 10
 echo "docker ps -q | xargs -L 1 docker logs"
 docker ps -q | xargs -L 1 docker logs
 
-echo "kubectl wait --for=condition=ready pod -l app=helloworld"
-kubectl wait --for=condition=ready pod -l app=helloworld 
-
-echo "kubectl get pods"
-kubectl get pods
+echo "kubectl get pods -A"
+kubectl get pods -A
 
 echo "docker ps -a"
 docker ps -a
