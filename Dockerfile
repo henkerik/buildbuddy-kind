@@ -16,6 +16,10 @@ FROM gcr.io/flame-public/rbe-ubuntu20-04@sha256:036ae8c90876fa22da9ace6f8218e614
 
 RUN curl -s https://raw.githubusercontent.com/k3d-io/k3d/main/install.sh | bash
 
+RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
+RUN chmod +x kubectl 
+RUN mv kubectl /usr/local/bin/
+
 # Docker
 #
 # Note: gnupg is only needed to install Docker, so we uninstall it at the end of
