@@ -48,5 +48,34 @@ kubectl get namespaces
 echo "kubectl -n=kube-system get pods"
 kubectl -n=kube-system get pods
 
-echo "docker ps"
-docker ps
+echo "docker ps -a"
+docker ps -a
+
+echo "kubectl apply"
+cat <<EOF | kubectl apply -f -
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: helloworld
+spec:
+  selector:
+    matchLabels:
+      app: helloworld
+  replicas: 1 
+  template:
+    metadata:
+      labels:
+        app: helloworld
+    spec:
+      containers:
+      - name: helloworld
+        image: karthequian/helloworld:latest
+        ports:
+        - containerPort: 80
+EOF
+
+echo "kubectl get pods"
+kubectl get pods
+
+echo "docker ps -a"
+docker ps -a
