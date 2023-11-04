@@ -74,6 +74,11 @@ spec:
         - containerPort: 80
 EOF
 
+sleep 10
+
+echo "docker ps -q | xargs -L 1 docker logs"
+docker ps -q | xargs -L 1 docker logs
+
 echo "kubectl wait --for=condition=ready pod -l app=helloworld"
 kubectl wait --for=condition=ready pod -l app=helloworld 
 
