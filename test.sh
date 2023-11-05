@@ -31,7 +31,8 @@ echo "systemctl list-unit-files"
 systemctl list-unit-files
 
 echo "systemctl status docker"
-systemctl status docker
+# Fails with System has not been booted with systemd as init system (PID 1). Can't operate.
+# systemctl status docker
 
 echo "stat -fc %T /sys/fs/cgroup/"
 stat -fc %T /sys/fs/cgroup/
