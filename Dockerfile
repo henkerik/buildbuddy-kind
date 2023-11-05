@@ -23,6 +23,8 @@ RUN mv kubectl /usr/local/bin/
 RUN apt update -y
 RUN apt -y install fuse3
 
+RUN curl -Lo /usr/local/bin/k3s https://github.com/k3s-io/k3s/releases/download/v1.26.5+k3s1/k3s; chmod a+x /usr/local/bin/k3s
+
 # Docker
 #
 # Note: gnupg is only needed to install Docker, so we uninstall it at the end of

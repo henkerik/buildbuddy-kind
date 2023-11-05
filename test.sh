@@ -34,7 +34,6 @@ echo "echo \$PATH"
 echo $PATH
 
 echo "k3s check-config"
-curl -sfL https://get.k3s.io | sh - 
 k3s check-config
 
 k3d cluster delete mycluster
