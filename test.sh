@@ -25,7 +25,7 @@ set -e
 # minikube start --driver=podman --container-runtime=cri-o
 # minikube status 
 
-docker info
+# docker info
 
 echo "systemctl list-unit-files"
 systemctl list-unit-files
@@ -52,6 +52,10 @@ PATH=$PATH\:/usr/sbin; export PATH
 # k3d cluster create mycluster --trace --kubeconfig-switch-context --k3s-arg='--snapshotter=native@all:*'
 
 # k3d kubeconfig merge mycluster --kubeconfig-switch-context
+
+curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
+chmod +x kubectl 
+mv kubectl /usr/local/bin/
 
 echo "kubectl cluster-info"
 kubectl cluster-info
