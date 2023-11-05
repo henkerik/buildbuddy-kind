@@ -58,31 +58,31 @@ chmod +x kubectl
 mv kubectl /usr/local/bin/
 
 echo "kubectl cluster-info"
-kubectl cluster-info
+kubectl --kubeconfig /etc/rancher/k3s/k3s.yaml cluster-info
 
 echo "kubectl cluster-info dump"
-kubectl cluster-info dump
+kubectl --kubeconfig /etc/rancher/k3s/k3s.yaml cluster-info dump
 
 echo "kubectl config get-contexts"
-kubectl config get-contexts
+kubectl --kubeconfig /etc/rancher/k3s/k3s.yaml config get-contexts
 
 echo "kubectl get nodes"
-kubectl get nodes
+kubectl --kubeconfig /etc/rancher/k3s/k3s.yaml get nodes
 
 echo "kubectl get pods -A"
-kubectl get pods -A
+kubectl --kubeconfig /etc/rancher/k3s/k3s.yaml get pods -A
 
 echo "kubectl get namespaces"
-kubectl get namespaces
+kubectl --kubeconfig /etc/rancher/k3s/k3s.yaml get namespaces
 
 echo "kubectl -n=kube-system get pods"
-kubectl -n=kube-system get pods
+kubectl --kubeconfig /etc/rancher/k3s/k3s.yaml -n=kube-system get pods
 
-echo "docker ps -a"
-docker ps -a
+# echo "docker ps -a"
+# docker ps -a
 
 echo "kubectl apply"
-cat <<EOF | kubectl apply -f -
+cat <<EOF | kubectl --kubeconfig /etc/rancher/k3s/k3s.yaml apply -f -
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -106,11 +106,11 @@ EOF
 
 sleep 10
 
-echo "docker ps -q | xargs -L 1 docker logs"
-docker ps -q | xargs -L 1 docker logs
+# echo "docker ps -q | xargs -L 1 docker logs"
+# docker ps -q | xargs -L 1 docker logs
 
 echo "kubectl get pods -A"
-kubectl get pods -A
+kubectl --kubeconfig /etc/rancher/k3s/k3s.yaml get pods -A
 
-echo "docker ps -a"
-docker ps -a
+# echo "docker ps -a"
+# docker ps -a
