@@ -54,7 +54,7 @@ set -e
 # k3d kubeconfig merge mycluster --kubeconfig-switch-context
 
 
-
+k0s sysinfo
 
 echo "kubectl cluster-info"
 kubectl --kubeconfig /etc/rancher/k3s/k3s.yaml cluster-info
