@@ -27,21 +27,21 @@ set -e
 
 # docker info
 
-echo "systemctl list-unit-files"
-systemctl list-unit-files
-
-echo "systemctl status docker"
+# echo "systemctl list-unit-files"
+# systemctl list-unit-files
+# 
+# echo "systemctl status docker"
 # Fails with System has not been booted with systemd as init system (PID 1). Can't operate.
 # systemctl status docker
 
-echo "stat -fc %T /sys/fs/cgroup/"
-stat -fc %T /sys/fs/cgroup/
-
-echo "ls -la /usr/sbin"
-ls -la /usr/sbin
-
-echo "echo \$PATH"
-echo $PATH
+# echo "stat -fc %T /sys/fs/cgroup/"
+# stat -fc %T /sys/fs/cgroup/
+# 
+# echo "ls -la /usr/sbin"
+# ls -la /usr/sbin
+# 
+# echo "echo \$PATH"
+# echo $PATH
 
 # echo "k3s check-config"
 # k3s check-config
@@ -53,11 +53,8 @@ echo $PATH
 
 # k3d kubeconfig merge mycluster --kubeconfig-switch-context
 
-k3s server --snapshotter=native
 
-curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
-chmod +x kubectl 
-mv kubectl /usr/local/bin/
+
 
 echo "kubectl cluster-info"
 kubectl --kubeconfig /etc/rancher/k3s/k3s.yaml cluster-info
