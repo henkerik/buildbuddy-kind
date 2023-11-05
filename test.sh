@@ -26,7 +26,7 @@ set -e
 # minikube status 
 
 k3d cluster delete mycluster
-k3d cluster create mycluster --kubeconfig-switch-context
+k3d cluster create mycluster --kubeconfig-switch-context --k3s-arg='--snapshotter native'
 
 k3d kubeconfig merge mycluster --kubeconfig-switch-context
 
