@@ -11,7 +11,7 @@ sh_test(
     ],
     exec_properties = {
         "test.workload-isolation-type": "firecracker",
-        "test.init-dockerd": "true",
+        # "test.init-dockerd": "true",
         "test.recycle-runner": "true",
         "EstimatedComputeUnits": "2",
     },
