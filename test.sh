@@ -27,6 +27,13 @@ set -e
 
 docker info
 
+echo "which mount.fuse3"
+which mount.fuse3
+
+echo "k3s check-config"
+curl -sfL https://get.k3s.io | sh - 
+k3s check-config
+
 k3d cluster delete mycluster
 k3d cluster create mycluster --trace --kubeconfig-switch-context --k3s-arg='--snapshotter=fuse-overlayfs@all:*'
 
