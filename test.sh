@@ -56,32 +56,37 @@ set -e
 
 k0s sysinfo
 
+docker run -d --name k0s --hostname k0s --privileged -v /var/lib/k0s -p 6443:6443 docker.io/k0sproject/k0s:latest
+
+echo "docker ps -a"
+docker ps -a
+
 echo "kubectl cluster-info"
-kubectl --kubeconfig /etc/rancher/k3s/k3s.yaml cluster-info
+docker exec k0s kubectl cluster-info
 
 echo "kubectl cluster-info dump"
-kubectl --kubeconfig /etc/rancher/k3s/k3s.yaml cluster-info dump
+docker exec k0s kubectl cluster-info dump
 
 echo "kubectl config get-contexts"
-kubectl --kubeconfig /etc/rancher/k3s/k3s.yaml config get-contexts
+docker exec k0s kubectl config get-contexts
 
 echo "kubectl get nodes"
-kubectl --kubeconfig /etc/rancher/k3s/k3s.yaml get nodes
+docker exec k0s kubectl get nodes
 
 echo "kubectl get pods -A"
-kubectl --kubeconfig /etc/rancher/k3s/k3s.yaml get pods -A
+docker exec k0s kubectl get pods -A
 
 echo "kubectl get namespaces"
-kubectl --kubeconfig /etc/rancher/k3s/k3s.yaml get namespaces
+docker exec k0s kubectl get namespaces
 
 echo "kubectl -n=kube-system get pods"
-kubectl --kubeconfig /etc/rancher/k3s/k3s.yaml -n=kube-system get pods
+docker exec k0s kubectl -n=kube-system get pods
 
 # echo "docker ps -a"
 # docker ps -a
 
 echo "kubectl apply"
-cat <<EOF | kubectl --kubeconfig /etc/rancher/k3s/k3s.yaml apply -f -
+cat <<EOF | docker exec k0s kubectl apply -f -
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -105,11 +110,11 @@ EOF
 
 sleep 10
 
-# echo "docker ps -q | xargs -L 1 docker logs"
-# docker ps -q | xargs -L 1 docker logs
+echo "docker ps -q | xargs -L 1 docker logs"
+docker ps -q | xargs -L 1 docker logs
 
-echo "kubectl get pods -A"
+echo "docker exec k0s kubectl pods -A"
 kubectl --kubeconfig /etc/rancher/k3s/k3s.yaml get pods -A
 
-# echo "docker ps -a"
-# docker ps -a
+echo "docker ps -a"
+docker ps -a
