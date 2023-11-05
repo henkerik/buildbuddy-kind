@@ -1,4 +1,4 @@
-FROM weaveworks/ignite-ubuntu@sha256:5f8bbb08ab81d5ab53aa0a152b447e4d8c9a227d24bf535ec0bbc09667441b5d
+FROM weaveworks/ignite-kernel@sha256:3017f91a552378c08b207440f4feb669a4c2056495217233fc22fa7c6f38f881
 
 # FROM ubuntu:22.04@sha256:c9cf959fd83770dfdefd8fb42cfef0761432af36a764c077aed54bbc5bb25368
 # 
