@@ -28,7 +28,7 @@ set -e
 docker info
 
 k3d cluster delete mycluster
-k3d cluster create mycluster --trace --kubeconfig-switch-context --k3s-arg='--snapshotter=native@all:*'
+k3d cluster create mycluster --trace --kubeconfig-switch-context --k3s-arg='--snapshotter=fuse-overlayfs@all:*'
 
 k3d kubeconfig merge mycluster --kubeconfig-switch-context
 
