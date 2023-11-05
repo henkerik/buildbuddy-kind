@@ -27,8 +27,11 @@ set -e
 
 docker info
 
-echo "which mount.fuse3"
-which mount.fuse3
+echo "ls -la /usr/sbin"
+ls -la /usr/sbin
+
+echo "echo \$PATH"
+echo $PATH
 
 echo "k3s check-config"
 curl -sfL https://get.k3s.io | sh - 
