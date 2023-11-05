@@ -27,6 +27,12 @@ set -e
 
 docker info
 
+echo "systemctl list-unit-files"
+systemctl list-unit-files
+
+echo "systemctl status docker"
+systemctl status docker
+
 echo "stat -fc %T /sys/fs/cgroup/"
 stat -fc %T /sys/fs/cgroup/
 
@@ -36,13 +42,13 @@ ls -la /usr/sbin
 echo "echo \$PATH"
 echo $PATH
 
-# echo "k3s check-config"
-# k3s check-config
+echo "k3s check-config"
+k3s check-config
 
 PATH=$PATH\:/usr/sbin; export PATH
 
 k3d cluster delete mycluster
-k3d cluster create mycluster --trace --kubeconfig-switch-context --image=rancher/k3s:v1.18.20-k3s1 # --k3s-arg='--snapshotter=native@all:*'
+k3d cluster create mycluster --trace --kubeconfig-switch-context --k3s-arg='--snapshotter=native@all:*'
 
 k3d kubeconfig merge mycluster --kubeconfig-switch-context
 
