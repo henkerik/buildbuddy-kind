@@ -27,6 +27,9 @@ set -e
 
 docker info
 
+echo "stat -fc %T /sys/fs/cgroup/"
+stat -fc %T /sys/fs/cgroup/
+
 echo "ls -la /usr/sbin"
 ls -la /usr/sbin
 
@@ -39,7 +42,7 @@ echo $PATH
 PATH=$PATH\:/usr/sbin; export PATH
 
 k3d cluster delete mycluster
-k3d cluster create mycluster --trace --kubeconfig-switch-context --k3s-arg='--snapshotter=fuse-overlayfs@all:*'
+k3d cluster create mycluster --trace --kubeconfig-switch-context --k3s-arg='--snapshotter=native@all:*'
 
 k3d kubeconfig merge mycluster --kubeconfig-switch-context
 
