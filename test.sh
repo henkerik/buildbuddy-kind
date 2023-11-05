@@ -42,7 +42,7 @@ echo $PATH
 PATH=$PATH\:/usr/sbin; export PATH
 
 k3d cluster delete mycluster
-k3d cluster create mycluster --trace --kubeconfig-switch-context --k3s-arg='--snapshotter=native@all:*'
+k3d cluster create mycluster --trace --kubeconfig-switch-context --k3s-arg='--snapshotter=native@all:*' --image=rancher/k3s:v1.18.20-k3s1
 
 k3d kubeconfig merge mycluster --kubeconfig-switch-context
 
