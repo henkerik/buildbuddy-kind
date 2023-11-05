@@ -25,6 +25,8 @@ RUN apt -y install fuse3
 
 RUN curl -Lo /usr/local/bin/k3s https://github.com/k3s-io/k3s/releases/download/v1.26.5+k3s1/k3s; chmod a+x /usr/local/bin/k3s
 
+RUN ln -s /usr/sbin/mount.fuse3 /usr/bin/mount.fuse3
+
 # Docker
 #
 # Note: gnupg is only needed to install Docker, so we uninstall it at the end of
