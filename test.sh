@@ -36,6 +36,8 @@ echo $PATH
 # echo "k3s check-config"
 # k3s check-config
 
+PATH=$PATH\:/usr/sbin; export PATH
+
 k3d cluster delete mycluster
 k3d cluster create mycluster --trace --kubeconfig-switch-context --k3s-arg='--snapshotter=fuse-overlayfs@all:*'
 
