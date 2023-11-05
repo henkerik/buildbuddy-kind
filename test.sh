@@ -53,6 +53,8 @@ echo $PATH
 
 # k3d kubeconfig merge mycluster --kubeconfig-switch-context
 
+k3s server --snapshotter=native
+
 curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
 chmod +x kubectl 
 mv kubectl /usr/local/bin/
