@@ -61,6 +61,11 @@ docker run -d --name k0s --hostname k0s --privileged -v /var/lib/k0s -p 6443:644
 echo "docker ps -a"
 docker ps -a
 
+sleep 10
+
+echo "docker ps -q | xargs -L 1 docker logs"
+docker ps -q | xargs -L 1 docker logs
+
 echo "kubectl cluster-info"
 docker exec k0s kubectl cluster-info
 
