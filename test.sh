@@ -25,8 +25,10 @@ set -e
 # minikube start --driver=podman --container-runtime=cri-o
 # minikube status 
 
+docker info
+
 k3d cluster delete mycluster
-k3d cluster create mycluster --kubeconfig-switch-context --k3s-arg='--snapshotter native'
+k3d cluster create mycluster --trace --kubeconfig-switch-context --k3s-arg='--snapshotter fuse-overlayfs'
 
 k3d kubeconfig merge mycluster --kubeconfig-switch-context
 
