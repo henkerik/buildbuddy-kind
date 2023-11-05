@@ -61,7 +61,7 @@ docker run -d --name k0s --hostname k0s --privileged -v /var/lib/k0s -p 6443:644
 echo "docker ps -a"
 docker ps -a
 
-sleep 10
+sleep 60
 
 echo "docker ps -q | xargs -L 1 docker logs"
 docker ps -q | xargs -L 1 docker logs
@@ -89,6 +89,12 @@ docker exec k0s kubectl -n=kube-system get pods
 
 # echo "docker ps -a"
 # docker ps -a
+
+
+docker exec k0s cat /var/lib/k0s/pki/admin.conf > ~/.kube/config
+
+echo "cat ~/.kube/config"
+cat ~/.kube/config
 
 echo "kubectl apply"
 cat <<EOF | docker exec k0s kubectl apply -f -
