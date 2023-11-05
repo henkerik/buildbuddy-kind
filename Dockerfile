@@ -20,6 +20,9 @@ RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s 
 RUN chmod +x kubectl 
 RUN mv kubectl /usr/local/bin/
 
+RUN apt update -y
+RUN apt -y install fuse3
+
 # Docker
 #
 # Note: gnupg is only needed to install Docker, so we uninstall it at the end of
