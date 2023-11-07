@@ -8,6 +8,11 @@ RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s 
 RUN chmod +x kubectl 
 RUN mv kubectl /usr/local/bin/
 
+RUN curl -L https://storage.googleapis.com/etcd/v3.5.10/etcd-v3.5.10-linux-amd64.tar.gz -o /tmp/etcd-v3.5.10-linux-amd64.tar.gz
+RUN tar xzvf /tmp/etcd-v3.5.10-linux-amd64.tar.gz -C /usr/bin --strip-components=1
+
+
+
 # FROM ubuntu:22.04@sha256:c9cf959fd83770dfdefd8fb42cfef0761432af36a764c077aed54bbc5bb25368
 # 
 # RUN apt update -y
