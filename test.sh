@@ -53,6 +53,8 @@ set -e
 
 # k3d kubeconfig merge mycluster --kubeconfig-switch-context
 
+# Start etcd in the background
+etcd &
 
 k0s sysinfo
 
