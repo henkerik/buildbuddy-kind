@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-echo "Cloud! Test"
+echo "Cloud! Test 2"
