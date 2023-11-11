@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-echo "Yeah! Test"
+echo "Self Hosted! Test"

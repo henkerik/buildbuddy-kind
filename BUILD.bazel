@@ -46,3 +46,20 @@ sh_test(
         "//rules/tools/kind:kind_alias",
     ],
 )
+
+sh_test(
+    name = "cloud",
+    srcs = [
+        "cloud.sh",
+    ],
+    args = [
+        "$(KIND)",
+    ],
+    data = [
+        "//rules/tools/kind:kind_alias",
+    ],
+    tags = [],
+    toolchains = [
+        "//rules/tools/kind:kind_alias",
+    ],
+)
