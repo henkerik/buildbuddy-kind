@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-echo "Self Hosted! Test2"
+echo "Self Hosted! Test3"
 
 hostname
