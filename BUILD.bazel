@@ -39,6 +39,7 @@ sh_test(
         # "test.recycle-runner": "true",
         # "EstimatedComputeUnits": "2",
         # "EstimatedFreeDiskBytes": "10GB",
+        "use-self-hosted-executors": "true",
         "Pool": "custom-pool",
     },
     tags = [],
