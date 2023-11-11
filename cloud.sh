@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-echo "Cloud! Test 3"
+echo "Cloud! Test 4"
 
 hostname
