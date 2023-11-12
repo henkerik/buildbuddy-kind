@@ -53,6 +53,9 @@ sh_test(
     srcs = [
         "cloud.sh",
     ],
+    exec_properties = {
+        "test.workload-isolation-type": "firecracker",
+    },
     args = [
         "$(KIND)",
     ],
