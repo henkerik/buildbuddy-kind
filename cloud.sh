@@ -6,6 +6,6 @@ echo "egrep -c '(vmx|svm)' /proc/cpuinfo"
 egrep -c '(vmx|svm)' /proc/cpuinfo
 
 echo "kvm-ok"
-kvm-ok
+/usr/sbin/kvm-ok
 
 hostname
