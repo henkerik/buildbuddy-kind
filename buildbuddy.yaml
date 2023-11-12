@@ -10,4 +10,4 @@ actions:
         branches:
           - '*'
     bazel_commands:
-      - bazel test --config=buildbuddy //:self_hosted //:cloud
+      - bazel test --config=buildbuddy //:cloud
