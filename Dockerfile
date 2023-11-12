@@ -1,15 +1,20 @@
-FROM gcr.io/flame-public/rbe-ubuntu20-04:latest@sha256:036ae8c90876fa22da9ace6f8218e614f4cd500a154fc162973fff691e72d28e
+FROM ubuntu:22.04@sha256:c9cf959fd83770dfdefd8fb42cfef0761432af36a764c077aed54bbc5bb25368
 
-RUN apt install -y curl
+RUN apt update -y
+RUN apt install -y cpu-checker
 
-RUN curl -sSLf https://get.k0s.sh | sh
+# FROM gcr.io/flame-public/rbe-ubuntu20-04:latest@sha256:036ae8c90876fa22da9ace6f8218e614f4cd500a154fc162973fff691e72d28e
 
-RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
-RUN chmod +x kubectl 
-RUN mv kubectl /usr/local/bin/
-
-RUN curl -L https://storage.googleapis.com/etcd/v3.5.10/etcd-v3.5.10-linux-amd64.tar.gz -o /tmp/etcd-v3.5.10-linux-amd64.tar.gz
-RUN tar xzvf /tmp/etcd-v3.5.10-linux-amd64.tar.gz -C /usr/bin --strip-components=1
+# RUN apt install -y curl
+# 
+# RUN curl -sSLf https://get.k0s.sh | sh
+# 
+# RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
+# RUN chmod +x kubectl 
+# RUN mv kubectl /usr/local/bin/
+# 
+# RUN curl -L https://storage.googleapis.com/etcd/v3.5.10/etcd-v3.5.10-linux-amd64.tar.gz -o /tmp/etcd-v3.5.10-linux-amd64.tar.gz
+# RUN tar xzvf /tmp/etcd-v3.5.10-linux-amd64.tar.gz -C /usr/bin --strip-components=1
 
 
 
