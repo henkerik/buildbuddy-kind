@@ -9,3 +9,6 @@ echo "kvm-ok"
 /usr/sbin/kvm-ok
 
 hostname
+
+echo "echo \$VAR_A"
+echo $VAR_A

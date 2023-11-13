@@ -10,4 +10,4 @@ actions:
         branches:
           - '*'
     bazel_commands:
-      - bazel test --config=buildbuddy //:cloud
+      - bazel test --config=buildbuddy --remote_exec_header=x-buildbuddy-platform.env-overrides=VAR_A=value_a //:cloud 
